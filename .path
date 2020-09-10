@@ -1,0 +1,17 @@
+# Assign path to Golang
+export GOPATH="$HOME/golang"
+
+# Setup path
+PATH="$PATH:/usr/local/sbin"
+
+# Add support for jenv @see http://www.jenv.be/
+PATH="$PATH:$HOME/.jenv/bin"
+eval "$(jenv init -)"
+
+# Add support for yarn
+PATH="$PATH:$HOME/.yarn/bin"
+
+# Add support for rbenv
+PATH="$HOME/.rbenv/bin:$PATH"
+
+export PATH
