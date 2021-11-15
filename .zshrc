@@ -10,7 +10,7 @@ bindkey -v
 fpath=( "$HOME/.zfunctions" $fpath )
 
 # antigen time!
-source ~/code/antigen/antigen.zsh
+source ./antigen.zsh
 
 ######################################################################
 ### install some antigen bundles
@@ -52,11 +52,14 @@ $b tarruda/zsh-autosuggestions
 $b trapd00r/zsh-syntax-highlighting-filetypes
 
 # dont set a theme, because pure does it all
-$b mafredri/zsh-async
-$b sindresorhus/pure
+# $b mafredri/zsh-async
+# $b sindresorhus/pure
 
 # Tell antigen that you're done.
-#antigen apply
+# antigen apply
+
+autoload -U promptinit; promptinit
+prompt pure
 
 ###
 #################################################################################################
@@ -77,11 +80,11 @@ auto-ls () {
 chpwd_functions=( auto-ls $chpwd_functions )
 
 # Enable autosuggestions automatically
-zle-line-init() {
-    zle autosuggest-start
-}
+# zle-line-init() {
+#     zle autosuggest-start
+# }
 
-zle -N zle-line-init
+# zle -N zle-line-init
 
 
 # history mgmt
