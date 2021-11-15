@@ -1,5 +1,9 @@
-# vim as default
-export EDITOR="vim"
+# vscode as default, vim for ssh sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR="vim"
+else
+  export EDITOR="code -w"
+fi
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
