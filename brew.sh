@@ -38,7 +38,6 @@ brew install wget
 brew install vim
 brew install nano
 brew install grep
-brew install openssh
 
 # z hopping around folders
 brew install z
