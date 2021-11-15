@@ -46,15 +46,15 @@ end
 function gz --d "Get the gzipped size"
   printf "%-20s %12s\n"  "compression method"  "bytes"
   printf "%-20s %'12.0f\n"  "original"         (cat "$argv[1]" | wc -c)
-  
+
   # -5 is what GH pages uses, dunno about others
   # fwiw --no-name is equivalent to catting into gzip
   printf "%-20s %'12.0f\n"  "gzipped (-5)"     (cat "$argv[1]" | gzip -5 -c | wc -c)
   printf "%-20s %'12.0f\n"  "gzipped (--best)" (cat "$argv[1]" | gzip --best -c | wc -c)
-  
+
   # brew install brotli to get these as well
   if hash brotli
-  # googlenews uses about -5, walmart serves --best 
+  # googlenews uses about -5, walmart serves --best
   printf "%-20s %'12.0f\n"  "brotli (-q 5)"    (cat "$argv[1]" | brotli -c --quality=5 | wc -c)
   printf "%-20s %'12.0f\n"  "brotli (--best)"  (cat "$argv[1]" | brotli -c --best | wc -c)
   end
@@ -87,7 +87,7 @@ function fuck -d 'Correct your previous console command'
 end
 
 # requires my excellent `npm install -g statikk`
-function server -d 'Start a HTTP server in the current dir, optionally specifying the port'    
+function server -d 'Start a HTTP server in the current dir, optionally specifying the port'
     if test $argv[1]
         set port $argv[1]
         statikk --open --port "$port"
@@ -100,8 +100,8 @@ end
 function emptytrash -d 'Empty the Trash on all mounted volumes and the main HDD. then clear the useless sleepimage'
     sudo rm -rfv "/Volumes/*/.Trashes"
     grm -rf "~/.Trash/*"
-    rm -rfv "/Users/paulirish/Library/Application Support/stremio/Cache"
-    rm -rfv "/Users/paulirish/Library/Application Support/stremio/stremio-cache"
+    rm -rfv "/Users/jclayton/Library/Application Support/stremio/Cache"
+    rm -rfv "/Users/jclayton/Library/Application Support/stremio/stremio-cache"
     rm -rfv "~/Library/Application Support/Spotify/PersistentCache/Update/*.tbz"
     rm -rfv ~/Library/Caches/com.spotify.client/Data
     rm -rfv ~/Library/Caches/Firefox/Profiles/98ne80k7.dev-edition-default/cache2

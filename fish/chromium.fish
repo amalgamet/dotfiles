@@ -10,7 +10,7 @@ end
 function b --description "build chromium"
 	set -l dir_default (grealpath $PWD/(git rev-parse --show-cdup)out/Default/)
 	# 1000 will die with 'fatal: posix_spawn: No such file or directory'. 900 never has.  1000 is too much for my imacpro
-    set -l cmd "ninja -C "$dir_default" -j900 -l 60 chrome blink_tests"  
+    set -l cmd "ninja -C "$dir_default" -j900 -l 60 chrome blink_tests"
     echo "  > $cmd"
 
     # DISABLED automatically lower the priority of compiler_proxy
@@ -38,7 +38,7 @@ end
 
 function dtb --description "build devtools"
     set -l dir_default (grealpath $PWD/(git rev-parse --show-cdup)out/Default/)
-    set -l cmd "autoninja -C "$dir_default""  
+    set -l cmd "autoninja -C "$dir_default""
     echo "  > $cmd"
     eval $cmd
 end
@@ -97,12 +97,12 @@ end
 
 function gom --description "run goma setup"
     set -x GOMAMAILTO /dev/null
-    # set -x GOMA_OAUTH2_CONFIG_FILE /Users/paulirish/.goma_oauth2_config
+    # set -x GOMA_OAUTH2_CONFIG_FILE /Users/jclayton/.goma_oauth2_config
     set -x GOMA_ENABLE_REMOTE_LINK yes
 
     goma_ctl ensure_start
     # maybe i dont need all this shit
-    
+
     # if not test (curl -X POST --silent http://127.0.0.1:8088/api/accountz)
     #     echo "Goma isn't running. Starting it."
     #     ~/goma/goma_ctl.py ensure_start

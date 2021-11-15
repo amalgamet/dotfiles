@@ -23,7 +23,7 @@ end
 
 # # rvm
 # if which -s rvm;
-# 	set PA $PA /Users/paulirish/.rvm/gems/ruby-2.2.1/bin
+# 	set PA $PA /Users/jclayton/.rvm/gems/ruby-2.2.1/bin
 # end
 
 
@@ -45,7 +45,7 @@ for entry in (string split \n $paths)
 end
 
 # GO
-set PA $PA "/Users/paulirish/.go/bin"
+set PA $PA "/Users/jclayton/.go/bin"
 
 # `code` binary from VS Code insiders
 set PA $PA "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"

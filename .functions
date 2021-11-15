@@ -178,7 +178,7 @@ shellswitch () {
 
 # initialize nvm
 function nv () {
-	export NVM_DIR="/Users/paulirish/.nvm"
+	export NVM_DIR="/Users/jclayton/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 }
 

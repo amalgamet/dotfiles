@@ -1,5 +1,5 @@
-set default_user "paulirish"
-set default_machine "paulirish-macbookair2"
+set default_user "jclayton"
+set default_machine "arcturus"
 
 
 source ~/.config/fish/path.fish
@@ -105,7 +105,7 @@ set -gx LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 
 # tabtab source for yarn package
 # uninstall by removing these lines or running `tabtab uninstall yarn`
-[ -f /Users/paulirish/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish ]; and . /Users/paulirish/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish
+[ -f /Users/jclayton/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish ]; and . /Users/jclayton/.config/yarn/global/node_modules/tabtab/.completions/yarn.fish
 
 
  # fzf should be populated via the silver searcher: https://github.com/junegunn/fzf#respecting-gitignore
@@ -117,4 +117,3 @@ set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 # TODO debug this
 # this currently messes with newlines in my prompt. lets debug it later.
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-
