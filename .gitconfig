@@ -31,6 +31,9 @@
 	attributesfile = ~/.gitattributes
 	precomposeUnicode = true
 
+[credential]
+	helper = osxkeychain
+
 [pager]
 	# or not... # insanely beautiful diffs ==> npm install -g diff-so-fancy
 	# https://github.com/dandavison/delta
@@ -89,8 +92,15 @@
 
 # git mergetool
 [merge]
-	tool = opendiff
-	renameLimit = 0
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
 
 
 [url "git@github.com:"]
@@ -121,9 +131,10 @@
 #	templatedir = ~/.git_template
 
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 
 [fetch]
 	prune = true
@@ -136,3 +147,7 @@
 	showPatch = true
 [log]
 	date = relative
+
+[user]
+	name = Josh Clayton
+	email = joshua.clayton@warnermedia.com
