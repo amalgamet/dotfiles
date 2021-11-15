@@ -38,7 +38,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 # Enable history expansion with space
 # E.g. typing !!<space> will replace the !! with your last command
-bindkey Space:magic-space
+bindkey " " magic-space
 
 # Use standard ISO 8601 timestamp
 # %F equivalent to %Y-%m-%d
@@ -50,13 +50,10 @@ export HISTTIMEFORMAT='%F %T '
 export HISTCONTROL="ignoredups"       # no duplicate entries, but keep space-prefixed commands
 export HISTSIZE=100000                          # big big history (default is 500)
 export HISTFILESIZE=$HISTSIZE                   # big big history
-type setopt &> /dev/null && setopt -s histappend  # append to history, don't overwrite it
+type setopt &> /dev/null && setopt histappend  # append to history, don't overwrite it
 
 # Don't record some commands
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
-
-# Save multi-line commands as one command
-setopt -s cmdhist
 
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
@@ -119,13 +116,13 @@ complete -W "NSGlobalDomain" defaults
 ##
 
 # Case-insensitive globbing (used in pathname expansion)
-setopt -s nocaseglob;
+setopt nocaseglob;
 
 # Correct spelling errors in arguments supplied to cd
-setopt -s cdspell;
+setopt cdspell;
 
 # Autocorrect on directory names to match a glob.
-setopt -s dirspell 2> /dev/null
+setopt dirspell 2> /dev/null
 
 # Turn on recursive globbing (enables ** to recurse all directories)
-setopt -s globstar 2> /dev/null
+setopt globstar 2> /dev/null
