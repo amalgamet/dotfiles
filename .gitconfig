@@ -151,3 +151,5 @@
 [user]
 	name = Josh Clayton
 	email = joshua.clayton@warnermedia.com
+[init]
+	defaultBranch = main
