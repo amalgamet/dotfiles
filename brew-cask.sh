@@ -1,9 +1,7 @@
 #!/bin/bash
 
-
 # to maintain cask ....
 #     brew update && brew cleanup
-
 
 # Install native apps
 

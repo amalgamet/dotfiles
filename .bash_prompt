@@ -3,18 +3,16 @@
 
 default_username='jclayton'
 
-
-if which thefuck > /dev/null; then
+if which thefuck >/dev/null; then
     eval "$(thefuck --alias)"
-fi;
+fi
 
 # Automatically trim long paths in the prompt (requires Bash 4.x)
 PROMPT_DIRTRIM=2
 
-if [[ -n "$ZSH_VERSION" ]]; then  # quit now if in zsh
-    return 1 2> /dev/null || exit 1;
-fi;
-
+if [[ -n "$ZSH_VERSION" ]]; then # quit now if in zsh
+    return 1 2>/dev/null || exit 1
+fi
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
     export TERM=gnome-256color
@@ -22,15 +20,14 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
     export TERM=xterm-256color
 fi
 
-
 set_prompts() {
 
     local black="" blue="" bold="" cyan="" green="" orange="" \
-          purple="" red="" reset="" white="" yellow=""
+        purple="" red="" reset="" white="" yellow=""
 
     local dateCmd=""
 
-    if [ -x /usr/bin/tput ] && tput setaf 1 &> /dev/null; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 &>/dev/null; then
 
         tput sgr0 # Reset colors
 
@@ -75,10 +72,10 @@ set_prompts() {
 
         # Highlight the user name when logged in as root.
         if [[ "${USER}" == *"root" ]]; then
-            userStyle="${red}";
+            userStyle="${red}"
         else
-            userStyle="${magenta}";
-        fi;
+            userStyle="${magenta}"
+        fi
 
         userhost=""
         userhost+="\[${userStyle}\]$USER "
@@ -88,7 +85,6 @@ set_prompts() {
 
         if [ $USER != "$default_username" ]; then echo $userhost ""; fi
     }
-
 
     function prompt_git() {
         # this is >5x faster than mathias's.
@@ -101,11 +97,10 @@ set_prompts() {
         #   then… get a tracking remote branch or tag
         #   otherwise… get the short SHA for the latest commit
         #   lastly just give up.
-        branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
-            git describe --all --exact-match HEAD 2> /dev/null || \
-            git rev-parse --short HEAD 2> /dev/null || \
-            echo '(unknown)')";
-
+        branchName="$(git symbolic-ref --quiet --short HEAD 2>/dev/null ||
+            git describe --all --exact-match HEAD 2>/dev/null ||
+            git rev-parse --short HEAD 2>/dev/null ||
+            echo '(unknown)')"
 
         ## early exit for Chromium & Blink repo, as the dirty check takes ~5s
         ## see other Chromium repo hacking optimizations: https://github.com/paulirish/dotfiles/blob/master/setup-a-new-machine.sh#L214
@@ -122,24 +117,21 @@ set_prompts() {
             #    github.com/mathiasbynens/dotfiles/blob/a8bd0d4300/.bash_prompt#L30-L43
         fi
 
-
-        [ -n "${s}" ] && s=" [${s}]";
-        echo -e "${1}${branchName}${2}$dirty";
+        [ -n "${s}" ] && s=" [${s}]"
+        echo -e "${1}${branchName}${2}$dirty"
 
         return
     }
-
-
 
     # ------------------------------------------------------------------
     # | Prompt string                                                  |
     # ------------------------------------------------------------------
 
-    PS1="\[\033]0;\w\007\]"                                 # terminal title (set to the current working directory)
+    PS1="\[\033]0;\w\007\]" # terminal title (set to the current working directory)
     PS1+="\n\[$bold\]"
-    PS1+="\[$(usernamehost)\]"                              # username at host
-    PS1+="\[$green\]\w"                                     # working directory
-    PS1+="\$(prompt_git \"\[$white\] on \[$purple\]\" \"\[$cyan\]\")"   # git repository details
+    PS1+="\[$(usernamehost)\]"                                        # username at host
+    PS1+="\[$green\]\w"                                               # working directory
+    PS1+="\$(prompt_git \"\[$white\] on \[$purple\]\" \"\[$cyan\]\")" # git repository details
     PS1+="\n"
     PS1+="\[$reset$white\]\\$ \[$reset\]"
 
@@ -163,14 +155,11 @@ set_prompts() {
     # FWIW, I have spent hours attempting to get time-per-command in here, but it's not possible. ~paul
     export PS4='+ \011\e[1;30m\t\011\e[1;34m${BASH_SOURCE}\e[0m:\e[1;36m${LINENO}\e[0m \011 ${FUNCNAME[0]:+\e[0;35m${FUNCNAME[0]}\e[1;30m()\e[0m:\011\011 }'
 
-
     # shoutouts:
     #   https://github.com/dholm/dotshell/blob/master/.local/lib/sh/profile.sh is quite nice.
     #   zprof is also hot.
 
 }
-
-
 
 set_prompts
 unset set_prompts

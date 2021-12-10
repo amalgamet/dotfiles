@@ -15,4 +15,3 @@ Now Renicing process $pgrep_output ...
 "
 
 renice +15 -p (pgrep compiler_proxy | head -n1)
-

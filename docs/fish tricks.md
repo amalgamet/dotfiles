@@ -9,5 +9,3 @@ sending stderr to devnull
 escaping to bash
 
      /bin/sh -c "(cd $argv[1] && python -m http.server)"
-
-
