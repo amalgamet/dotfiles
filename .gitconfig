@@ -1,0 +1,18 @@
+[user]
+  name = Josh Clayton
+  email = joshua.clayton@warnermedia.com
+[core]
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
+  precomposeUnicode = true
+[commit]
+  verbose = true
+[pull]
+  rebase = true
+[push]
+  default = current
+  followTags = true
+[init]
+  defaultBranch = main
+[rebase]
+  autosquash = true
