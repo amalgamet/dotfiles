@@ -13,7 +13,7 @@ fi
 if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   # shellcheck disable=SC2016
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME"/.zprofile
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>"$HOME"/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
@@ -30,4 +30,4 @@ brew bundle --file "$DOTFILES"/Brewfile
 
 # Set macOS preferences, which will reload the shell
 # shellcheck disable=SC1091
-. "$DOTFILES"/.macos
+# . "$DOTFILES"/.macos
