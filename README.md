@@ -38,7 +38,7 @@ Each folder is a Stow "package" that mirrors the home directory:
 | `git/`   | `.gitconfig`, identities  | Yes     |
 | `bat/`   | `.config/bat/config`      | Yes     |
 | `ssh/`   | SSH config                | Yes     |
-| `claude/`| Claude Code CLAUDE.md     | Yes     |
+| `claude/`| Claude Code config + skills | Yes   |
 | `vim/`   | vim/neovim config         | Planned |
 | `macos/` | macOS defaults script     | Manual  |
 | `brew/`  | Homebrew Brewfile         | Manual  |
@@ -67,3 +67,11 @@ Git uses [conditional includes](https://git-scm.com/docs/git-config#_conditional
 2. Mirror the home directory structure inside it (e.g., `tmux/.tmux.conf`)
 3. Add the folder name to `STOW_FOLDERS` in the Makefile
 4. Run `make stow`
+
+## Claude Code Skills
+
+Custom agent skills are stored in `claude/.claude/skills/` and symlinked to `~/.claude/skills/` via stow. To add a new skill:
+
+1. Create `claude/.claude/skills/<skill-name>/`
+2. Add `SKILL.md` (with frontmatter) and optionally `AGENTS.md`
+3. Run `make stow` — the skill is immediately available
