@@ -1,4 +1,4 @@
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -64,8 +64,7 @@ ZSH_THEME=""
 # see 'man strftime' for details.
 HIST_STAMPS="yyyy/mm/dd"
 
-# Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$DOTFILES
+# ZSH_CUSTOM defaults to $ZSH/custom (Oh My Zsh default)
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -104,7 +103,6 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias c='clear'
-alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 
 if hash python3 2>/dev/null; then
   alias python=python3

@@ -1,0 +1,4 @@
+/.aws/config
+/.aws/credentials
+/.config/dotfiles/.*
+/.dotfiles.git

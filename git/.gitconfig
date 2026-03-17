@@ -1,18 +1,29 @@
 [user]
   name = Josh Clayton
-  email = joshua.clayton@warnermedia.com
+
+[includeIf "gitdir:~/code/personal/"]
+  path = .gitconfig-personal
+
+[includeIf "gitdir:~/code/work/"]
+  path = .gitconfig-work
+
 [core]
-  excludesfile = ~/.gitignore
+  excludesFile = ~/.gitignore_global
   attributesfile = ~/.gitattributes
   precomposeUnicode = true
+
 [commit]
   verbose = true
+
 [pull]
   rebase = true
+
 [push]
   default = current
   followTags = true
+
 [init]
   defaultBranch = main
+
 [rebase]
   autosquash = true

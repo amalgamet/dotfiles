@@ -38,14 +38,3 @@ brew 'redis'
 brew 'ripgrep'
 brew 'shellcheck'
 brew 'yarn'
-
-# Mac App Store
-mas 'Bear', id: 1091189122
-mas 'BetterSnapTool', id: 417375580
-mas 'CARROT Weather', id: 993487541
-mas 'Slack', id: 803453959
-mas 'Spark', id: 1176895641
-mas 'The Unarchiver', id: 425424353
-mas 'Things', id: 904280696
-mas 'Tweetbot', id: 1384080005
-mas 'Xcode', id: 497799835
