@@ -7,23 +7,90 @@
 [includeIf "gitdir:~/code/work/"]
   path = .gitconfig-work
 
+[color]
+  ui = auto
+
+[column]
+  ui = auto
+
 [core]
   excludesFile = ~/.gitignore_global
   attributesfile = ~/.gitattributes
   precomposeUnicode = true
+  # uses the macOS file system monitor to detect changes
+  fsmonitor = true
+  # instruct the file system monitor to cache untracked files
+  untrackedCache = true
+
+[branch]
+  # sorts branches by the most recent commit
+  sort = -committerdate
 
 [commit]
+  # shows the diff below the commit message
   verbose = true
 
-[pull]
-  rebase = true
+[diff]
+  tool = Kaleidoscope
+  # better algorithm than myers
+  algorithm = histogram
+  # shows moved code in different color than added/removed code
+  colorMoved = plain
+  # shows where the diff is coming from: i/ (index) c/ (commit) or w/ (working dir)
+  mnemonicPrefix = true
+  # detects if a file has been renamed
+  renames = true
 
-[push]
-  default = current
-  followTags = true
+[difftool]
+  prompt = false
+  trustExitCode = true
+
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+
+[help]
+  autocorrect = prompt
 
 [init]
   defaultBranch = main
 
+[merge]
+  tool = Kaleidoscope
+  conflictstyle = zdiff3
+
+[mergetool]
+  prompt = false
+  trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+
+[pull]
+  # rebases the current branch onto the remote branch
+  rebase = true
+
+[push]
+  default = simple
+  followTags = true
+  autoSetupRemote = true
+
 [rebase]
   autosquash = true
+  autostash = true
+  updateRefs = true
+
+[rerere]
+  # "reuse recorded resolution" helps when rebasing with lots of conflicts
+  enabled = true
+  # automatically reapply resolutions if they occur again
+  autoupdate = true
+
+[tag]
+  # treats tags like version numbers for sorting (not chronological)
+  sort = version:refname
