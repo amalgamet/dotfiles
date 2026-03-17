@@ -3,7 +3,7 @@ set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 BACKUP_DIR="$HOME/.dotfiles-backup/$(date +%Y-%m-%d-%H%M%S)"
-STOW_FOLDERS=(zsh git bat)
+STOW_FOLDERS=(zsh git bat ssh claude)
 DRY_RUN=false
 
 if [[ "${1:-}" == "--dry-run" ]]; then

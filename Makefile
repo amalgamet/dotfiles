@@ -1,5 +1,5 @@
 DOTFILES_DIR := $(shell cd $(dir $(lastword $(MAKEFILE_LIST))) && pwd)
-STOW_FOLDERS := zsh git bat
+STOW_FOLDERS := zsh git bat ssh claude
 
 .PHONY: help install stow unstow restow brew macos
 

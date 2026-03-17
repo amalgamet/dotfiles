@@ -37,9 +37,9 @@ Each folder is a Stow "package" that mirrors the home directory:
 | `zsh/`   | `.zshrc`, `.zprofile`     | Yes     |
 | `git/`   | `.gitconfig`, identities  | Yes     |
 | `bat/`   | `.config/bat/config`      | Yes     |
+| `ssh/`   | SSH config                | Yes     |
+| `claude/`| Claude Code CLAUDE.md     | Yes     |
 | `vim/`   | vim/neovim config         | Planned |
-| `ssh/`   | SSH config                | Planned |
-| `claude/`| Claude Code config        | Planned |
 | `macos/` | macOS defaults script     | Manual  |
 | `brew/`  | Homebrew Brewfile         | Manual  |
 
