@@ -1,27 +1,19 @@
-# Binaries
-brew 'awscli'
-brew 'bash'
-brew 'coreutils'
-brew 'ffmpeg'
-brew 'gh'
-brew 'git'
-brew 'gnu-sed'
-brew 'gnupg'
-brew 'grep'
-brew 'httpie'
-brew 'mas'
-brew 'moreutils'
-brew 'pkg-config'
-brew 'stow'
+# frozen_string_literal: true
 
-# Development
+# Taps
+tap 'hashicorp/tap'
+
+# Binaries
 brew 'bat'
 brew 'eza'
-brew 'fzf'
-brew 'imagemagick'
-brew 'jq'
-brew 'node'
-brew 'pure'
+brew 'gh'
+brew 'go'
+brew 'hashicorp/tap/terraform'
+brew 'oven-sh/bun/bun'
+brew 'pnpm'
+brew 'pyenv'
 brew 'ripgrep'
-brew 'shellcheck'
-brew 'yarn'
+brew 'sqlite'
+brew 'starship'
+brew 'stow'
+brew 'tflint'

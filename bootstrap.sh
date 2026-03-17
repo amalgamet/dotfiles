@@ -59,6 +59,27 @@ else
   info "Oh My Zsh already installed."
 fi
 
+# --- Rust (via rustup) ---
+if ! command -v rustup &>/dev/null; then
+  info "Installing Rust via rustup..."
+  if [[ "$DRY_RUN" == false ]]; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    source "$HOME/.cargo/env"
+  fi
+else
+  info "Rust already installed."
+fi
+
+# --- NVM ---
+if [[ ! -d "$HOME/.nvm" ]]; then
+  info "Installing NVM..."
+  if [[ "$DRY_RUN" == false ]]; then
+    PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'
+  fi
+else
+  info "NVM already installed."
+fi
+
 # --- Backup conflicting files ---
 backup_if_exists() {
   local target="$1"
