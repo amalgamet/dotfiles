@@ -11,7 +11,7 @@ install: ## Full bootstrap (runs bootstrap.sh)
 
 stow: ## Symlink all topic folders to home
 	@for folder in $(STOW_FOLDERS); do \
-		stow --target=$(HOME) --dir=$(DOTFILES_DIR) --restow $$folder; \
+		stow --target=$(HOME) --dir=$(DOTFILES_DIR) --adopt --restow $$folder; \
 	done
 
 unstow: ## Remove all symlinks
